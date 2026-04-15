@@ -10,7 +10,7 @@ const Footer = lazy(() => import("./components/Footer.jsx"));
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react">
       <div className="page-shell">
         <Header />
         <main className="page-main">
