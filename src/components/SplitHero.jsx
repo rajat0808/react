@@ -1,8 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import logoUrl from "../assets/rental-dresses-logo.png";
 import dressPhoto from "../assets/hero-photo.png";
-import SocialContactCard from "./SocialContactCard.jsx";
 
 const imageUrl = dressPhoto;
 const DEFAULT_CATEGORY_GROUPS = [
@@ -71,13 +70,12 @@ const firstFallbackCategoryId = DEFAULT_CATEGORY_GROUPS[0].items[0].id;
 
 export default function SplitHero() {
   const [revealed, setRevealed] = useState(false);
-  const [categoryGroups, setCategoryGroups] = useState(DEFAULT_CATEGORY_GROUPS);
   const [activeCategoryId, setActiveCategoryId] = useState(
     firstFallbackCategoryId
   );
-  const [isCategoryLoading, setIsCategoryLoading] = useState(true);
-  const [categoryError, setCategoryError] = useState("");
   const reduceMotion = useReducedMotion();
+
+  const categoryGroups = DEFAULT_CATEGORY_GROUPS;
 
   const transition = {
     duration: reduceMotion ? 0.01 : 1.35,
@@ -95,61 +93,6 @@ export default function SplitHero() {
   const activeCategory =
     allCategories.find((item) => item.id === activeCategoryId) ??
     allCategories[0];
-
-  useEffect(() => {
-    let ignore = false;
-
-    async function loadCategories() {
-      try {
-        setIsCategoryLoading(true);
-        setCategoryError("");
-
-        const response = await fetch("/api/categories");
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        const data = await response.json();
-        if (!Array.isArray(data) || data.length === 0 || ignore) {
-          return;
-        }
-
-        const normalizedGroups = data
-          .map((group) => ({
-            title: group.title,
-            description: group.description,
-            items: Array.isArray(group.items) ? group.items : [],
-          }))
-          .filter(
-            (group) =>
-              typeof group.title === "string" &&
-              typeof group.description === "string" &&
-              group.items.length > 0
-          );
-
-        if (normalizedGroups.length > 0) {
-          setCategoryGroups(normalizedGroups);
-          setActiveCategoryId(normalizedGroups[0].items[0].id);
-        }
-      } catch (error) {
-        if (!ignore) {
-          setCategoryError("MongoDB API not connected. Showing local fallback data.");
-        }
-
-        console.error("Failed to load categories from API:", error);
-      } finally {
-        if (!ignore) {
-          setIsCategoryLoading(false);
-        }
-      }
-    }
-
-    loadCategories();
-
-    return () => {
-      ignore = true;
-    };
-  }, []);
 
   return (
     <div className="w-full bg-white">
@@ -231,9 +174,6 @@ export default function SplitHero() {
               timeless memories, beautifully styled and effortlessly captured.
             </p>
           </div>
-          <div className="mt-4 flex justify-start">
-            <SocialContactCard />
-          </div>
         </div>
 
       </motion.section>
@@ -290,16 +230,6 @@ export default function SplitHero() {
               <div className="mb-3 text-[0.65rem] uppercase tracking-[0.28em] text-[#7a1d33]">
                 Rentals and Shoots
               </div>
-              {isCategoryLoading && (
-                <p className="mb-3 rounded-lg bg-[#fbeef2] px-3 py-2 text-[0.75rem] text-[#7a1d33]">
-                  Loading categories...
-                </p>
-              )}
-              {!isCategoryLoading && categoryError && (
-                <p className="mb-3 rounded-lg bg-[#fbeef2] px-3 py-2 text-[0.75rem] text-[#7a1d33]">
-                  {categoryError}
-                </p>
-              )}
               <div className="space-y-4">
                 {categoryGroups.map((group) => (
                   <div key={group.title}>

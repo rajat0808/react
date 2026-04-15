@@ -1,3 +1,5 @@
+import { WHATSAPP_URL, CALL_URL } from "../content/siteContent.js";
+
 const socialItems = [
   {
     label: "Instagram",
@@ -5,15 +7,15 @@ const socialItems = [
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/919305024641",
+    href: WHATSAPP_URL,
   },
   {
     label: "Google Maps",
-    href: "https://www.google.com/maps/dir//Rental+Dresses,+A-1345%2F21,+Lekh+Raj+Marg,+near+Meena+Market+Road,+A+Block,+Liberty+Colony+Park,+Sarvodaya+Nagar,+Indira+Nagar,+Lucknow,+Uttar+Pradesh+226016/@26.814603,80.8882669,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x399bfd50ee82ec59:0x42fdc2e362ddf028!2m2!1d80.9746637!2d26.8772864?entry=ttu&g_ep=EgoyMDI2MDIxNi4wIKXMDSoASAFQAw%3D%3D",
+    href: "https://www.google.com/maps/dir//Rental+Dresses,+A-1345%2F21,+Lekh+Raj+Marg,+near+Meena+Market+Road",
   },
   {
     label: "Call",
-    href: "tel:+919305024641",
+    href: CALL_URL,
     isCall: true,
   },
 ];
