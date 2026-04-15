@@ -1,6 +1,12 @@
+import maternityMain from "../assets/maternity-main.png";
+import preWeddingMain from "../assets/pre-wedding-main.png";
+import lehengaMain from "../assets/lehenga-main.png";
+import menswearMain from "../assets/menswear-main.png";
+
 export const PHONE = "9305177142";
 export const WHATSAPP_URL = `https://wa.me/91${PHONE}`;
 export const CALL_URL = `tel:+91${PHONE}`;
+
 
 export const navItems = [
   { label: "Home", href: "/" },
@@ -196,10 +202,10 @@ export const catalogueSections = [
     title: "Maternity Shoot Gallery",
     description: "Gown, Saree, Temple, and Ram–Sita themed shoots",
     items: [
-      { id: "maternity-gown", name: "Gown Shoots", description: "Elegant maternity gown setups with draping and soft backdrops." },
-      { id: "maternity-saree", name: "Saree Shoots", description: "Classic saree styling for timeless maternity portraits." },
-      { id: "maternity-temple", name: "Temple Theme", description: "Heritage-inspired temple backdrop with traditional wardrobe." },
-      { id: "maternity-ramsita", name: "Ram–Sita Theme", description: "Mythological couple-theme maternity shoots with full costume and set design." },
+      { id: "maternity-gown", name: "Gown Shoots", description: "Elegant maternity gown setups with draping and soft backdrops.", image: maternityMain },
+      { id: "maternity-saree", name: "Saree Shoots", description: "Classic saree styling for timeless maternity portraits.", image: maternityMain },
+      { id: "maternity-temple", name: "Temple Theme", description: "Heritage-inspired temple backdrop with traditional wardrobe.", image: maternityMain },
+      { id: "maternity-ramsita", name: "Ram–Sita Theme", description: "Mythological couple-theme maternity shoots with full costume and set design.", image: maternityMain },
     ],
   },
   {
@@ -207,8 +213,8 @@ export const catalogueSections = [
     title: "Pre-Wedding Shoot Gallery",
     description: "Cinematic couple portraits with editorial styling and location direction.",
     items: [
-      { id: "prewed-editorial", name: "Editorial Style", description: "High-fashion editorial couple shoots with curated wardrobe." },
-      { id: "prewed-outdoor", name: "Outdoor / Location", description: "Destination and outdoor couple shoots with location-specific styling." },
+      { id: "prewed-editorial", name: "Editorial Style", description: "High-fashion editorial couple shoots with curated wardrobe.", image: preWeddingMain },
+      { id: "prewed-outdoor", name: "Outdoor / Location", description: "Destination and outdoor couple shoots with location-specific styling.", image: preWeddingMain },
     ],
   },
   {
@@ -227,8 +233,8 @@ export const catalogueSections = [
     items: lehengaGalleryItems.length
       ? lehengaGalleryItems
       : [
-          { id: "lehenga-bridal", name: "Bridal Lehengas", description: "Statement bridal lehengas in reds, maroons, and golds." },
-          { id: "lehenga-pastel", name: "Pastel Lehengas", description: "Soft-tone lehengas for pre-wedding and reception looks." },
+          { id: "lehenga-bridal", name: "Bridal Lehengas", description: "Statement bridal lehengas in reds, maroons, and golds.", image: lehengaMain },
+          { id: "lehenga-pastel", name: "Pastel Lehengas", description: "Soft-tone lehengas for pre-wedding and reception looks.", image: lehengaMain },
         ],
   },
   {
@@ -238,8 +244,8 @@ export const catalogueSections = [
     items: menswearGalleryItems.length
       ? menswearGalleryItems
       : [
-          { id: "men-blazer", name: "Blazers", description: "Semi-formal blazer options in neutral and navy tones." },
-          { id: "men-tuxedo", name: "Tuxedos", description: "Classic black and charcoal tuxedos for formal shoot settings." },
+          { id: "men-blazer", name: "Blazers", description: "Semi-formal blazer options in neutral and navy tones.", image: menswearMain },
+          { id: "men-tuxedo", name: "Tuxedos", description: "Classic black and charcoal tuxedos for formal shoot settings.", image: menswearMain },
         ],
   },
 ];

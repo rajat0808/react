@@ -33,10 +33,6 @@ export default function Header() {
           <span className="header__brand-mark">
             <img src={logoUrl} alt="Rental Dresses" className="header__logo-img" />
           </span>
-          <span className="header__brand-copy">
-            <span className="header__brand-name">Rental Dresses</span>
-            <span className="header__brand-subtitle">Luxury Styling Studio</span>
-          </span>
         </Link>
 
         <nav className="header__nav" aria-label="Main Navigation">
@@ -89,10 +85,6 @@ export default function Header() {
                 <Link to="/" className="header__mobile-brand" aria-label="Rental Dresses Home">
                   <span className="header__mobile-brand-mark">
                     <img src={logoUrl} alt="Rental Dresses" className="header__mobile-brand-logo" />
-                  </span>
-                  <span className="header__mobile-brand-copy">
-                    <span className="header__mobile-brand-name">Rental Dresses</span>
-                    <span className="header__mobile-brand-subtitle">Luxury Styling Studio</span>
                   </span>
                 </Link>
 

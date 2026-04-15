@@ -49,22 +49,33 @@ export default function CataloguePage() {
             <div className="catalogue__grid">
               {activeSection.items.map((item) => (
                 <article key={item.id} className="catalogue__card">
-                  <div className="catalogue__card-placeholder">
-                    {item.image && !brokenImages[item.id] ? (
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="catalogue__card-image"
-                        loading="lazy"
-                        decoding="async"
-                        onError={() =>
-                          setBrokenImages((current) => ({ ...current, [item.id]: true }))
-                        }
-                      />
-                    ) : (
-                      <span className="catalogue__card-icon">📷</span>
-                    )}
-                  </div>
+                  <a 
+                    href={`${WHATSAPP_URL}?text=${encodeURIComponent(`Hi! I'm interested in the "${item.name}" from your catalogue.\n\nImage reference: ${window.location.origin}${item.image}`)}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="catalogue__card-visual-link"
+                    title={`Enquire about ${item.name}`}
+                  >
+                    <div className="catalogue__card-placeholder">
+                      {item.image && !brokenImages[item.id] ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="catalogue__card-image"
+                          loading="lazy"
+                          decoding="async"
+                          onError={() =>
+                            setBrokenImages((current) => ({ ...current, [item.id]: true }))
+                          }
+                        />
+                      ) : (
+                        <span className="catalogue__card-icon">📷</span>
+                      )}
+                      <div className="catalogue__card-overlay">
+                        <span className="catalogue__card-overlay-text">Send Enquiry</span>
+                      </div>
+                    </div>
+                  </a>
                   <div className="catalogue__card-body">
                     <h3 className="catalogue__card-title">{item.name}</h3>
                     <p className="catalogue__card-desc">{item.description}</p>
