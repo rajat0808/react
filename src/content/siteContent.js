@@ -165,7 +165,7 @@ const sortImageEntries = (entries) =>
 
 const lehengaImages = sortImageEntries(
   Object.entries(
-    import.meta.glob("../../Lehenge/*.{jpg,JPG,jpeg,JPEG,png,PNG}", {
+    import.meta.glob("../../Lehenge/*.{jpg,JPG,jpeg,JPEG,png,PNG,mp4,MP4}", {
       eager: true,
       import: "default",
     })
@@ -174,7 +174,7 @@ const lehengaImages = sortImageEntries(
 
 const menswearImages = sortImageEntries(
   Object.entries(
-    import.meta.glob("../../Blazers - Suits/*.{jpg,JPG,jpeg,JPEG,png,PNG}", {
+    import.meta.glob("../../Blazers - Suits/*.{jpg,JPG,jpeg,JPEG,png,PNG,mp4,MP4}", {
       eager: true,
       import: "default",
     })

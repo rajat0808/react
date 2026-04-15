@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header.jsx";
 
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
@@ -10,7 +10,7 @@ const Footer = lazy(() => import("./components/Footer.jsx"));
 
 export default function App() {
   return (
-    <BrowserRouter basename="/react">
+    <HashRouter>
       <div className="page-shell">
         <Header />
         <main className="page-main">
@@ -27,6 +27,6 @@ export default function App() {
           <Footer />
         </Suspense>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
